@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace DBShake;
+﻿namespace DBShake;
 
 public sealed class MSConnectionData : IDBConnectionData
 {
@@ -23,17 +21,5 @@ public sealed class MSConnectionData : IDBConnectionData
                 port = $":{Port}";
             return $"server={Server}{port};user={User};password={Password};database={Database}";
         }
-    }
-
-    public void CreateConnection(DbContextOptionsBuilder options)
-    {
-        int[] version = Version
-            .Split('.')
-            .Select(i => int.Parse(i))
-            .ToArray();
-
-        MySqlServerVersion mySqlVersion = new(new Version(version[0], version[1], version[2]));
-
-        options.UseMySql(ConnectionString, mySqlVersion);
     }
 }

@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace DBShake;
+﻿namespace DBShake;
 
 public sealed class PGConnectionData :IDBConnectionData
 {
@@ -14,6 +12,4 @@ public sealed class PGConnectionData :IDBConnectionData
     public string Password { get; set; }
 
     public string ConnectionString => $"Server={Server};Port={Port};Database={Database};User Id={UserId};Password={Password};";
-
-    public void CreateConnection(DbContextOptionsBuilder options) => options.UseNpgsql(ConnectionString);
 }

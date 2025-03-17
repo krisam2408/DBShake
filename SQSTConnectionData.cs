@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace DBShake;
+﻿namespace DBShake;
 
 public sealed class SQSTConnectionData : IDBConnectionData
 {
@@ -39,6 +37,4 @@ public sealed class SQSTConnectionData : IDBConnectionData
             return $"Data Source={Source};Initial Catalog={Database};Integrated Security={security};Connect Timeout={Timeout};Encrypt={encrypt};TrustServerCertificate={trust};ApplicationIntent={Intent};MultiSubnetFailover={failover}";
         }
     }
-
-    public void CreateConnection(DbContextOptionsBuilder options) => options.UseSqlServer(ConnectionString);
 }
